@@ -29,3 +29,8 @@ Route::get('/search/{query}','Front@search');
 
 Route::get('hello', 'Hello@index');
 Route::get('/hello/{name}', 'Hello@show');
+
+Route::get('blade', function () {
+    $drinks = array('Vodka','Gin','Brandy');
+    return view('page', array("name" => "The Raven",'day' => 'Friday', 'drinks' => $drinks)); 
+});
