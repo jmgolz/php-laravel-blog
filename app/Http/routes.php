@@ -27,8 +27,8 @@ Route::get('/cart','Front@cart');
 Route::get('/checkout','Front@checkout');
 Route::get('/search/{query}','Front@search');
 
-Route::get('hello', 'Hello@index');
-Route::get('/hello/{name}', 'Hello@show');
+// Route::get('hello', 'Hello@index');
+// Route::get('/hello/{name}', 'Hello@show');
 
 Route::get('blade', function () {
     $drinks = array('Vodka','Gin','Brandy');
