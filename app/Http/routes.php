@@ -34,3 +34,8 @@ Route::get('blade', function () {
     $drinks = array('Vodka','Gin','Brandy');
     return view('page', array("name" => "The Raven",'day' => 'Friday', 'drinks' => $drinks)); 
 });
+
+Route::get('/insert', function(){
+   App\Category::create(array('name' => 'music')) ;
+   return 'Category Added';
+});
