@@ -7,6 +7,7 @@ use App\Category;
 use App\Product;
 use App\Http\Controllers\Controller;
 
+
 class Front extends Controller
 {
     public $brands;
@@ -15,10 +16,10 @@ class Front extends Controller
     public $title;
     public $description;
     
-    public function __contruct(){
+    public function __construct() {
         $this->brands = Brand::all(array('name'));
         $this->categories = Category::all(array('name'));
-        $this->products = Product::all(array('id','name','price'));        
+        $this->products = Product::all(array('id','name','price'));
     }
     
     public function index() {
