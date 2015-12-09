@@ -1,6 +1,7 @@
+<pre> PAGE TITLE: {{$brands}}</pre>
 @extends('layouts.layout')
 
-@section('content')       
+@section('content')
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">

@@ -14,7 +14,7 @@
 Route::get('/','Front@index');
 Route::get('/products','Front@products');
 Route::get('/products/details/{id}','Front@product_details');
-Route::get('/products/categories','Front@product_categories');
+Route::get('/products/categories/{category}','Front@product_categories');
 Route::get('/products/brands','Front@product_brands');
 
 Route::get('/blog','Front@blog');
