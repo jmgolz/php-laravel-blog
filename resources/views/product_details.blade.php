@@ -58,12 +58,12 @@
                     <div class="col-sm-7">
                         <div class="product-information"><!--/product-information-->
                             <img src="{{asset('images/product-details/new.jpg')}}" class="newarrival" alt="" />
-                            <h2>Anne Klein Sleeveless Colorblock Scuba</h2>
+                            <h2>{{$title}}</h2>
                             <p>Web ID: 1089772</p>
                             <img src="{{asset('images/product-details/rating.png')}}" alt="" />
                             <form method="GET" action="{{url('cart')}}">
                                 <span>
-                                    <span>US $59</span>
+                                    <span>US ${{$product->price}}</span>
                                     <label>Quantity:</label>
                                     <input type="text" value="3" id="quantity" name="quantity" />
                                     <button type="submit" class="btn btn-fefault cart">
@@ -74,7 +74,7 @@
                             </form>
                             <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
-                            <p><b>Brand:</b> E-SHOPPER</p>
+                            <p><b>Brand:</b>{{$brand}}</p>
                             <a href=""><img src="{{asset('images/product-details/share.png')}}" class="share img-responsive"  alt="" /></a>
                         </div><!--/product-information-->
                     </div>

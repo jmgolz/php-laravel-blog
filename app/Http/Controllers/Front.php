@@ -32,7 +32,8 @@ class Front extends Controller
 
     public function product_details($id) {
         $product = Product::find($id);
-        return view('product_details', array('product' => $product, 'title' => $product->name,'description' => '','page' => 'products', 'brands' => $this->brands, 'categories' => $this->categories, 'products' => $this->products));
+        $brand = $this->categories->where('id', $product->id)->first()->name;
+        return view('product_details', array('brand' => $brand, 'product' => $product, 'title' => $product->name,'description' => $product->description,'page' => 'products', 'brands' => $this->brands, 'categories' => $this->categories, 'products' => $this->products));
     }
 
     public function product_categories($id) {
