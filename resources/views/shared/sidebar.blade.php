@@ -3,7 +3,7 @@
     <div class="panel panel-default">
     @foreach($categories as $category)    
         <div class="panel-heading">
-            <h4 class="panel-title"><a href='{{url("products/categories/$category->name")}}'>{{$category->name}}</a></h4>
+            <h4 class="panel-title"><a href='{{url("products/categories/$category->id")}}'>{{$category->name}}</a></h4>
         </div>
     @endforeach    
     </div>

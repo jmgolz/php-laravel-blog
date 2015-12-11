@@ -19,6 +19,7 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
+                    @if( count($products) > 0 ) 
                     @foreach($products as $product)
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -48,6 +49,9 @@
                             </div>
                         </div>
                     @endforeach
+                    @else
+                        <h3 class="title text-center">No products found</h3>
+                    @endif
                 </div>
 
                     <!--<ul class="pagination">-->
