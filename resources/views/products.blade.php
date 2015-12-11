@@ -28,14 +28,14 @@
                                         <h2>${{$product->price}}</h2>
                                         <p>{{$product->name}}</p>
                                         <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        <a href="{{url('products/details/$product->id')}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
+                                        <a href="{{url('products/details')}}/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>${{$product->price}}</h2>
                                             <p>{{$product->name}}</p>
                                             <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            <a href="{{url('products/details/$product->id')}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
+                                            <a href="{{url('products/details')}}/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
                                         </div>
                                     </div>
                                 </div>
