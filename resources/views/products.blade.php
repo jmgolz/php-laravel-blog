@@ -19,6 +19,7 @@
             <div class="col-sm-9 padding-right">
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
+                    @if( count($products) > 0 ) 
                     @foreach($products as $product)
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
@@ -28,14 +29,14 @@
                                         <h2>${{$product->price}}</h2>
                                         <p>{{$product->name}}</p>
                                         <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                        <a href="{{url('products/details/$product->id')}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
+                                        <a href="{{url('products/details')}}/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
                                     </div>
                                     <div class="product-overlay">
                                         <div class="overlay-content">
                                             <h2>${{$product->price}}</h2>
                                             <p>{{$product->name}}</p>
                                             <a href="{{url('cart')}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                            <a href="{{url('products/details/$product->id')}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
+                                            <a href="{{url('products/details')}}/{{$product->id}}" class="btn btn-default add-to-cart"><i class="fa fa-info"></i>View Details</a>
                                         </div>
                                     </div>
                                 </div>
@@ -48,6 +49,9 @@
                             </div>
                         </div>
                     @endforeach
+                    @else
+                        <h3 class="title text-center">No products found</h3>
+                    @endif
                 </div>
 
                     <!--<ul class="pagination">-->
