@@ -7,6 +7,10 @@ use App\Category;
 use App\Product;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Redirect;
+use Cart;
+
 
 class Front extends Controller
 {
@@ -66,7 +70,34 @@ class Front extends Controller
     }
 
     public function cart() {
-        return view('cart', array('title' => 'Welcome','description' => '','page' => 'home'));
+        
+        if(Request::isMethod('post')){
+            $product_id = Request::get('product_id');
+            $product = Product::find($product_id);
+            Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
+        }
+        
+        if(Request::get('product_id')){
+            $rowId = Cart::search(array('id' => Request::get('product_id')));
+            $item = Cart::get($rowId[0]);
+
+            if(Request::get('increment') == 1){
+                Cart::update($rowId[0], $item->qty + 1);    
+            } 
+            
+            else if(Request::get('decrement') == 1){
+                Cart::update($rowId[0], $item->qty - 1);    
+            } 
+            
+            else if(Request::get('delete') == 1){
+                Cart::remove($rowId[0]);
+            }
+        } else if(Request::get('clear_cart') == 1){
+            Cart::destroy();
+        }
+        
+        $cart = Cart::content();
+        return view('cart', array('cart' => $cart, 'title' => 'Welcome', 'description' => '', 'page' => 'home'));
     }
 
     public function checkout() {
