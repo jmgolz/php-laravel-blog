@@ -80,14 +80,20 @@ class Front extends Controller
         if(Request::get('product_id')){
             $rowId = Cart::search(array('id' => Request::get('product_id')));
             $item = Cart::get($rowId[0]);
-            
+
             if(Request::get('increment') == 1){
                 Cart::update($rowId[0], $item->qty + 1);    
-            }
+            } 
             
-             if(Request::get('decrement') == 1){
+            else if(Request::get('decrement') == 1){
                 Cart::update($rowId[0], $item->qty - 1);    
+            } 
+            
+            else if(Request::get('delete') == 1){
+                Cart::remove($rowId[0]);
             }
+        } else if(Request::get('clear_cart') == 1){
+            Cart::destroy();
         }
         
         $cart = Cart::content();

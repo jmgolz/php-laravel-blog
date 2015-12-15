@@ -46,7 +46,7 @@
                             <p class="cart_total_price">${{$item->subtotal}}</p>
                         </td>
                         <td class="cart_delete">
-                            <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                            <a class="cart_quantity_delete" href='{{url("cart?product_id=$item->id&delete=1")}}'><i class="fa fa-times"></i></a>
                         </td>
                     </tr>
                     @endforeach
@@ -128,7 +128,7 @@
                         <li>Shipping Cost <span>Free</span></li>
                         <li>Total <span>${{Cart::total()}}</span></li>
                     </ul>
-                    <a class="btn btn-default update" href="{{url('clear-cart')}}">Clear Cart</a>
+                    <a class="btn btn-default update" href="{{url('cart?clear_cart=1')}}">Clear Cart</a>
                     <a class="btn btn-default check_out" href="{{url('checkout')}}">Check Out</a>
                 </div>
             </div>
