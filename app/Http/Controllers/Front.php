@@ -104,7 +104,8 @@ class Front extends Controller
     }
 
     public function checkout() {
-        return view('checkout', array('title' => 'Welcome','description' => '','page' => 'home'));
+        $cart = Cart::content();
+        return view('checkout', array('title' => 'Welcome','description' => '','page' => 'home', 'cart' => $cart));
     }
 
     public function search($query) {
