@@ -70,11 +70,24 @@ class Front extends Controller
     }
 
     public function cart() {
-        //return view('cart', array('title' => 'Welcome','description' => '','page' => 'home'));
+        
         if(Request::isMethod('post')){
             $product_id = Request::get('product_id');
             $product = Product::find($product_id);
             Cart::add(array('id' => $product_id, 'name' => $product->name, 'qty' => 1, 'price' => $product->price));
+        }
+        
+        if(Request::get('product_id')){
+            $rowId = Cart::search(array('id' => Request::get('product_id')));
+            $item = Cart::get($rowId[0]);
+            
+            if(Request::get('increment') == 1){
+                Cart::update($rowId[0], $item->qty + 1);    
+            }
+            
+             if(Request::get('decrement') == 1){
+                Cart::update($rowId[0], $item->qty - 1);    
+            }
         }
         
         $cart = Cart::content();
