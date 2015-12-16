@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Product;
 use App\User;
+use App\Post;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Request;
